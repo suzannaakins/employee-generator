@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { resolve } = require('path');
+const {resolve} = require('');
 
 const writeFile = fileContent => {
     return new Promise((resolve, reject) => {
@@ -14,7 +14,7 @@ const writeFile = fileContent => {
             // if everything went well, resolve the Promise and send the successful data to the `.then()` method
             resolve({
                 ok: true,
-                message: 'Employees page created!'
+                message: 'Employees page created! Open "index.html" in the "dist" folder to view. Party time!'
             });
         });
     });
