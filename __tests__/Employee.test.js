@@ -1,9 +1,7 @@
-const { test, expect } = require('@jest/globals');
-const { string } = require('yargs');
+//parent file (like "Character" in jest-another-RPG app)
 const Employee = require('../lib/Employee.js')
 
-test('explanation of what this test does', () => {
-    const Employee = new Employee('parameters');
-
-    expect(employee.name).toBe(expect.any(string));
-}
+test('Can create a New "Employee" constructor', () => {
+    const employee = new Employee();
+    expect(typeof(employee)).toBe("object");
+});
