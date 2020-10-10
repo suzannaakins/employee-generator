@@ -1,8 +1,8 @@
 //application invoked with index.js
 
 const inquirer = require('inquirer');
+const fs = require('fs');
 const generatePage = require('./src/page-template.js');
-const { writeFile, copyFile } = require('./src/generate-site.js');
 
 //import employee classes
 const Manager = require('./lib/Manager');
@@ -74,7 +74,7 @@ const promptTeam = () => {
                 promptIntern();
             }
             else {
-                generatePage();
+                buildTeam();
             }
         });
 }
@@ -156,5 +156,19 @@ const promptEngineer = () => {
         });
 }
 
-//STARTS RUNNING THE APP!
+//STARTS RUNNING THE APP
 promptManager();
+
+function buildTeam() {
+    fs.writeFile('./dist.index.html', generatePage(employees), err => {
+        console.log(employees);
+        // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
+        if (err) {
+            reject(err);
+            // return out of the function here to make sure the Promise doesn't accidentally execute the resolve() function as well
+            return;
+        }
+        console.log('Employees page created! Open "index.html" in the "dist" folder to view. Party time!');
+    });
+};
+

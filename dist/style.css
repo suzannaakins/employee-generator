@@ -1,1 +1,19 @@
 /* generated stylesheet */
+header {
+    background-color: #fb4a4a;
+    color: white;
+    text-align: center;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+h1 {
+    font-weight: bold;
+    padding: 40px;
+}
+
+.card-title {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    background-color: #02a2ff;
+    color: white;
+    text-align: center;
+}

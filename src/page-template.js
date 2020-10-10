@@ -1,31 +1,29 @@
+// const employees = require("../index.js")
+
 //create the about section
-const generateCards = cardsText => {
-    if (!cardsText) {
+const generateCards = employees => {
+    if (!employees) {
         return '';
     }
-    return `
+    for (i = 0; i < employees.length; i++)
+        return `
         <div class="card-group">
             <div class="card">
                 <div class="card-body">
                     <div class="card-title">
-                        <h5>${employees.name}</h5>
+                        <h5>${employees[i].name}</h5>
                         <h6 class="card-subtitle">Employee TYPE: manager/engineer/intern</h6>
                     </div>
-                    <p class="card-text">ID: ${employees.id}</p>
-                    <p class="card-text">EMAIL: ${employees.email}</p>
-                    <p class="card-text">OFFICE NUMBER/ GITHUB/ SCHOOL: ${depends on employee(need IF statement)
-}</p>
+                    <p class="card-text">ID: ${employees[i].id}</p>
+                    <p class="card-text">EMAIL: ${employees[i].email}</p>
+                    <p class="card-text">OFFICE NUMBER/ GITHUB/ SCHOOL: ${"depends on employee(need IF statement)"}</p>
                 </div >
             </div >
         </div >
     `;
 };
 
-generatePage = templateData => {
-
-    // //destructure projects and about data from templateData based on their property key names
-    // const { projects, about, ...header } = templateData;
-
+const generatePage = employees => {
     return `
     < !DOCTYPE html >
         <html lang="en">
@@ -45,11 +43,11 @@ generatePage = templateData => {
                                     </header>
 
                                     <main>
-                                        ${generateCards()}
+                                        ${generateCards(employees)}
                                     </main>
                                 </body>
   </html>
     `;
 };
 
-module.exports = generatePage;
+module.exports = generatePage();
