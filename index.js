@@ -2,16 +2,14 @@
 
 const inquirer = require('inquirer');
 const generatePage = require('./src/page-template.js');
+const { writeFile, copyFile } = require('./src/generate-site.js');
+
+//import employee classes
 const Manager = require('./lib/Manager');
-//const Employee = require('./lib/Employee'); - do I need to include this?
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
 
-const generatePage = require('./src/page-template.js');
-const { writeFile, copyFile } = require('./utils/generate-site.js');
-const { listenerAdded } = require('emittery');
-const { option } = require('yargs');
-
+//create empty array to push user answers to prompts to
 const employees = [];
 
 //prompts to user
