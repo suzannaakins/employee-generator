@@ -2,12 +2,13 @@
 
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generatePage = require('./src/page-template.js');
+// const generatePage = require('./src/page-template.js');
 
 //import employee classes
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
+const render = require('./src/renderhtml.js');
 
 //create empty array to push user answers to prompts to
 const employees = [];
@@ -154,21 +155,12 @@ const promptEngineer = () => {
             employees.push(newEngineer);
             promptTeam();
         });
-}
+};
 
 //STARTS RUNNING THE APP
 promptManager();
 
 function buildTeam() {
-    fs.writeFile('./dist.index.html', generatePage(employees), err => {
-        console.log(employees);
-        // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
-        if (err) {
-            reject(err);
-            // return out of the function here to make sure the Promise doesn't accidentally execute the resolve() function as well
-            return;
-        }
-        console.log('Employees page created! Open "index.html" in the "dist" folder to view. Party time!');
-    });
+    fs.writeFileSync('./dist/index.html', render(employees), 'UTF8');
 };
 

@@ -16,7 +16,17 @@ const generateCards = employees => {
                     </div>
                     <p class="card-text">ID: ${employees[i].id}</p>
                     <p class="card-text">EMAIL: ${employees[i].email}</p>
-                    <p class="card-text">OFFICE NUMBER/ GITHUB/ SCHOOL: ${"depends on employee(need IF statement)"}</p>
+                    <p class="card-text">OFFICE NUMBER/ GITHUB/ SCHOOL: `
+                    if (employees === newManager) {
+                        `${employees.phone}`
+                    }
+                    else if (employees === newIntern) {
+                        `${employees.school}`
+                    }
+                    else if (employees === newEngineer) {
+                        `${employees.github}`
+                    }
+    `</p>
                 </div >
             </div >
         </div >
@@ -25,7 +35,7 @@ const generateCards = employees => {
 
 const generatePage = employees => {
     return `
-    < !DOCTYPE html >
+    <!DOCTYPE html>
         <html lang="en">
 
             <head>
@@ -35,7 +45,7 @@ const generatePage = employees => {
                             <title>Employee Info</title>
                             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
                                 <link rel="stylesheet" href="style.css">
-        </head>
+            </head>
 
                                 <body>
                                     <header>
@@ -46,8 +56,7 @@ const generatePage = employees => {
                                         ${generateCards(employees)}
                                     </main>
                                 </body>
-  </html>
-    `;
+        </html>`;
 };
 
-module.exports = generatePage();
+module.exports = generatePage;
