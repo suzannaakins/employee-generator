@@ -2,10 +2,14 @@
     <div class="card-body">
         <div class="card-title">
             <h5>{{name}}</h5>
-            <h6 class="card-subtitle">Employee Type: {{role}}</h6>
+            <h6 class="card-subtitle">{{role}}</h6>
         </div>
-        <p class="card-text">ID: {{id}}</p>
-        <p class="card-text">EMAIL: {{email}}</p>
-        <p class="card-text">Github: {{github}}</p>
+        <p class="card-text">Id: {{id}}</p>
+        <p class="card-text">Email: {{email}}
+            <a href="mailto:{{email}}">{{email}}</a>
+        </p>
+        <p class="card-text">Github:
+            <a href="https://github.com/{{github}}" target="_blank">https://github.com/{{github}}</a>
+        </p>
     </div>
 </div>
