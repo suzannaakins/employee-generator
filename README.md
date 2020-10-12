@@ -16,10 +16,11 @@ To install necessary dependencies, run the following command:
 npm i
   
 ## Usage
-Please clone the repo to your computer.  You will need to install inquirer from the command line using "npm install inquirer."  Then type "node index" in the command line and the application will run.  For a walk-through video, click here.
+Please clone the repo to your computer.  You will need to install inquirer from the command line using "npm install inquirer."  Then type "node index" in the command line and the application will run.  For a walk-through video, click [here](https://drive.google.com/file/d/1LNyzxLAcLEy9W6isX0HE8jZp-NCyRpbV/view).
 
 ## Contributing
-Feel free to change the css file in the dist folder if you'd like your portfolio to have alternative styling.
+Feel free to change the css file in the dist folder if you'd like your portfolio to have alternative styling. Here is a picture of the current styling: 
+![pagestyles](./sampleHTML.png)
 
 ## Tests
 To run tests, run the following command: 
