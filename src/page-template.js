@@ -2,11 +2,24 @@
 
 //create the about section
 const generateCards = employees => {
+    var extraStuff; 
     if (!employees) {
         return '';
     }
-    for (i = 0; i < employees.length; i++)
-        return `
+    for (i = 0; i < employees.length; i++) {
+    if (employees === newManager) {
+        extraStuff = `${employees.phone}`
+    }
+    else if (employees === newIntern) {
+        extraStuff =`${employees.school}`
+    }
+    else if (employees === newEngineer) {
+        extraStuff= `${employees.github}`
+    }
+    else {
+        extraStuff = ''
+    }
+        return (`
         <div class="card-group">
             <div class="card">
                 <div class="card-body">
@@ -16,21 +29,14 @@ const generateCards = employees => {
                     </div>
                     <p class="card-text">ID: ${employees[i].id}</p>
                     <p class="card-text">EMAIL: ${employees[i].email}</p>
-                    <p class="card-text">OFFICE NUMBER/ GITHUB/ SCHOOL: `
-                    if (employees === newManager) {
-                        `${employees.phone}`
-                    }
-                    else if (employees === newIntern) {
-                        `${employees.school}`
-                    }
-                    else if (employees === newEngineer) {
-                        `${employees.github}`
-                    }
-    `</p>
+                    <p class="card-text">OFFICE NUMBER/ GITHUB/ SCHOOL: 
+                    ${extraStuff}
+                    </p>
                 </div >
             </div >
         </div >
-    `;
+    `)
+    };
 };
 
 const generatePage = employees => {
