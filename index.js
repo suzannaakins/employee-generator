@@ -1,8 +1,6 @@
 //application invoked with index.js
-
 const inquirer = require('inquirer');
 const fs = require('fs');
-// const generatePage = require('./src/page-template.js');
 
 //import employee classes
 const Manager = require('./lib/Manager');
@@ -13,7 +11,6 @@ const render = require('./src/renderhtml.js');
 //create empty array to push user answers to prompts to
 const employees = [];
 
-//prompts to user
 const promptManager = () => {
     return inquirer.prompt([
         {
@@ -54,8 +51,6 @@ const promptManager = () => {
 };
 
 const promptTeam = () => {
-    //at end of functions, "break"
-    //have default - default is generate HTML function call
     return inquirer
         .prompt([
             {
@@ -66,8 +61,6 @@ const promptTeam = () => {
             }
         ])
         .then(answers => {
-            //can use switch to call different prompt function depending on user answer/value
-
             if (answers.option === "Engineer") {
                 promptEngineer();
             }
@@ -157,10 +150,9 @@ const promptEngineer = () => {
         });
 };
 
-//STARTS RUNNING THE APP
-promptManager();
-
 function buildTeam() {
     fs.writeFileSync('./dist/index.html', render(employees), 'UTF8');
 };
 
+//STARTS RUNNING THE APP
+promptManager();
